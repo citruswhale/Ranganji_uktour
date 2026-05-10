@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Spectral:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Bhakti palette — premium minimalist */
+  --paper: #fbf6ec;
+  --paper-deep: #f4ead9;
+  --surface: #fffdf7;
+  --ink: #2a1810;
+  --ink-soft: #5e4634;
+  --ink-mute: #8a6f5b;
+  --saffron: #c95a1a;
+  --saffron-deep: #a8470f;
+  --vermillion: #b8423c;
+  --gold: #b8893b;
+  --gold-soft: #d9b97a;
+  --line: #e6d6bd;
+  --glow: 200, 130, 60;
+}
+
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Spectral", Georgia, serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* { border-color: var(--line); }
+
+/* ==================== ambient background ==================== */
+.brochure-bg {
+  position: relative;
+  background: var(--paper);
+  overflow: hidden;
+  isolation: isolate;
+}
+.brochure-bg::before,
+.brochure-bg::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(90px);
+  opacity: 0.6;
+}
+.brochure-bg::before {
+  top: -200px; left: -140px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201, 90, 26, 0.4), transparent 70%);
+}
+.brochure-bg::after {
+  bottom: -220px; right: -160px;
+  width: 640px; height: 640px;
+  background: radial-gradient(circle, rgba(184, 137, 59, 0.36), transparent 70%);
+}
+
+/* paper grain */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.16  0 0 0 0 0.09  0 0 0 0 0.06  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.font-display { font-family: "Fraunces", "Cormorant Garamond", Georgia, serif; font-optical-sizing: auto; }
+.font-body { font-family: "Spectral", Georgia, serif; }
+
+/* ==================== lotus tile pattern (user image) ==================== */
+.lotus-tile {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image:
+    url("./assets/lotus.png"),
+    url("./assets/lotus.png");
+  background-size: 220px 220px, 220px 220px;
+  background-position: 0 0, 110px 110px;
+  background-repeat: repeat, repeat;
+}
+@media (max-width: 1024px) {
+  .lotus-tile {
+    background-size: 180px 180px, 180px 180px;
+    background-position: 0 0, 90px 90px;
+    opacity: 0.075;
+  }
+}
+@media (max-width: 640px) {
+  .lotus-tile {
+    background-size: 140px 140px, 140px 140px;
+    background-position: 0 0, 70px 70px;
+    opacity: 0.085;
+  }
+}
+
+/* ==================== hero ornamental frame (restored) ==================== */
+.hero-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-top: 2px solid rgba(184, 137, 59, 0.55);
+  border-bottom: 2px solid rgba(184, 137, 59, 0.55);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 252, 244, 0.55) 0%,
+    rgba(252, 240, 218, 0.42) 100%
+  );
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 0 0 6px rgba(255, 250, 235, 0.5),
+    inset 0 0 0 7px rgba(184, 137, 59, 0.3),
+    0 22px 50px -28px rgba(168, 71, 15, 0.22);
+}
+.hero-frame::before,
+.hero-frame::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background:
+    repeating-linear-gradient(90deg, rgba(184, 137, 59, 0.55) 0 6px, transparent 6px 12px);
+}
+.hero-frame::before { top: 10px; }
+.hero-frame::after { bottom: 10px; }
+.hero-frame .corner {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--saffron-deep);
+}
+.hero-frame .tl { top: -2px; left: -2px; border-right: 0; border-bottom: 0; border-top-left-radius: 6px; }
+.hero-frame .tr { top: -2px; right: -2px; border-left: 0; border-bottom: 0; border-top-right-radius: 6px; }
+.hero-frame .bl { bottom: -2px; left: -2px; border-right: 0; border-top: 0; border-bottom-left-radius: 6px; }
+.hero-frame .br { bottom: -2px; right: -2px; border-left: 0; border-top: 0; border-bottom-right-radius: 6px; }
+.hero-frame .corner::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(184, 137, 59, 0.55);
+  border-radius: 2px;
+}
+
+/* ==================== card surface ==================== */
+.surface-card {
+  position: relative;
+  background: linear-gradient(180deg, #fffdf7 0%, #fdf7eb 100%);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 1px 2px rgba(42, 24, 16, 0.04),
+    0 24px 48px -28px rgba(168, 71, 15, 0.18);
+}
+
+/* ==================== date pill, links ==================== */
+.date-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff4dc 0%, #fbe6c0 100%);
+  border: 1px solid #e7c993;
+  color: var(--saffron-deep);
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.map-link {
+  color: var(--saffron-deep);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 250ms ease, color 200ms ease;
+}
+.map-link:hover {
+  color: var(--vermillion);
+  background-size: 100% 1px;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+/* ==================== simple star divider ==================== */
+.star-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--gold);
+  margin: 0 auto;
+}
+.star-divider .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0.7;
+}
+
+/* selection */
+::selection {
+  background: rgba(201, 90, 26, 0.22);
+  color: var(--ink);
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--paper-deep); }
+::-webkit-scrollbar-thumb { background: #d9bf9a; border-radius: 999px; }
+
+/* ==================== logo placeholder ==================== */
+.logo-placeholder {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 88px;
+  height: 88px;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 245, 220, 0.95), rgba(232, 212, 176, 0.7)),
+    linear-gradient(180deg, #fdeec8 0%, #ead0a3 100%);
+  border: 1.5px dashed rgba(184, 137, 59, 0.65);
+  color: var(--saffron-deep);
+  font-family: "Fraunces", serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 22px -10px rgba(168, 71, 15, 0.35);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+.logo-placeholder:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -12px rgba(168, 71, 15, 0.45);
+}
+@media (min-width: 768px) {
+  .logo-placeholder { width: 100px; height: 100px; font-size: 12px; }
+}
+@media (min-width: 1024px) {
+  .logo-placeholder { width: 116px; height: 116px; font-size: 13px; border-radius: 18px; }
+}
+
+/* ==================== shadcn vars ==================== */
+@layer base {
+  :root {
+    --background: 36 60% 96%;
+    --foreground: 22 50% 12%;
+    --card: 36 60% 99%;
+    --card-foreground: 22 50% 12%;
+    --popover: 36 60% 99%;
+    --popover-foreground: 22 50% 12%;
+    --primary: 22 78% 38%;
+    --primary-foreground: 40 60% 98%;
+    --secondary: 36 40% 90%;
+    --secondary-foreground: 22 50% 18%;
+    --muted: 36 40% 92%;
+    --muted-foreground: 22 25% 38%;
+    --accent: 36 70% 88%;
+    --accent-foreground: 22 50% 18%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 40 60% 98%;
+    --border: 36 40% 84%;
+    --input: 36 40% 84%;
+    --ring: 22 78% 38%;
+    --radius: 0.75rem;
+  }
+}
