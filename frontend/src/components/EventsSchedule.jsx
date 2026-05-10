@@ -4,12 +4,12 @@ import { events, buildMapsLink } from "../data/events.js";
 
 const TBA = "To be announced soon";
 
-const VenueLink = ({ name, address }) => {
+const VenueLink = ({ name, address, mapLink }) => {
   const query = address || name;
   const display = address && address !== name ? `${name}, ${address}` : name;
   return (
     <a
-      href={buildMapsLink(query)}
+      href={mapLink || buildMapsLink(query)}
       target="_blank"
       rel="noopener noreferrer"
       className="map-link inline-flex items-start gap-1.5"
@@ -70,7 +70,7 @@ const TableRow = ({ ev, idx }) => {
           )}
         </td>
         <td className="align-top px-5 py-5">
-          <VenueLink name={ev.venueName} address={ev.address} />
+          <VenueLink name={ev.venueName} address={ev.address} mapLink={ev.mapLink} />
           <div
             className="flex items-center gap-1.5 mt-2 font-body text-sm italic"
             style={{ color: "var(--ink-mute)" }}
@@ -112,7 +112,7 @@ const TableRow = ({ ev, idx }) => {
         )}
       </td>
       <td className="align-top px-5 py-5">
-        <VenueLink name={ev.venueName} address={ev.address} />
+        <VenueLink name={ev.venueName} address={ev.address} mapLink={ev.mapLink} />
         <div
           className="flex items-center gap-1.5 mt-2 font-body text-sm"
           style={{ color: "var(--ink-soft)" }}
@@ -207,7 +207,7 @@ const MobileCard = ({ ev }) => {
           )}
           <div className="space-y-2.5">
             <div>
-              <VenueLink name={ev.venueName} address={ev.address} />
+              <VenueLink name={ev.venueName} address={ev.address} mapLink={ev.mapLink} />
             </div>
             <div className="flex items-start gap-2">
               <Clock size={14} className="mt-1" style={{ color: "var(--gold)" }} />
@@ -251,7 +251,7 @@ const MobileCard = ({ ev }) => {
               </span>
             </div>
             <div>
-              <VenueLink name={ev.venueName} address={ev.address} />
+              <VenueLink name={ev.venueName} address={ev.address} mapLink={ev.mapLink} />
             </div>
             {(ev.contactName || ev.contactPhone) && (
               <div className="flex items-start gap-2 pt-1">
