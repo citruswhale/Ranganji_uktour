@@ -4,6 +4,10 @@ import { events, buildMapsLink } from "../data/events.js";
 
 const TBA = "To be announced soon";
 
+const parayanamIds = [1, 3, 5];
+const parayanamEvents = events.filter(e => parayanamIds.includes(e.id));
+const discoursesEvents = events.filter(e => !parayanamIds.includes(e.id));
+
 const VenueLink = ({ name, address, mapLink }) => {
   const query = address || name;
   const display = address && address !== name ? `${name}, ${address}` : name;
@@ -37,7 +41,7 @@ const TableRow = ({ ev, idx }) => {
           <DateCell ev={ev} />
         </td>
         <td
-          colSpan={3}
+          colSpan={2}
           className="align-middle px-5 py-5 font-body italic text-[0.95rem]"
           style={{ color: "var(--ink-mute)" }}
         >
@@ -79,14 +83,6 @@ const TableRow = ({ ev, idx }) => {
             <span>Timing to be announced</span>
           </div>
         </td>
-        <td className="align-top px-5 py-5">
-          <span
-            className="font-body text-sm italic"
-            style={{ color: "var(--ink-mute)" }}
-          >
-            {TBA}
-          </span>
-        </td>
       </tr>
     );
   }
@@ -110,20 +106,8 @@ const TableRow = ({ ev, idx }) => {
             {ev.session}
           </p>
         )}
-      </td>
-      <td className="align-top px-5 py-5">
-        <VenueLink name={ev.venueName} address={ev.address} mapLink={ev.mapLink} />
-        <div
-          className="flex items-center gap-1.5 mt-2 font-body text-sm"
-          style={{ color: "var(--ink-soft)" }}
-        >
-          <Clock size={13} style={{ color: "var(--gold)" }} />
-          <span>{ev.time || TBA}</span>
-        </div>
-      </td>
-      <td className="align-top px-5 py-5">
-        {ev.contactName || ev.contactPhone ? (
-          <div className="font-body text-sm" style={{ color: "var(--ink-soft)" }}>
+        {(ev.contactName || ev.contactPhone) && (
+          <div className="font-body text-sm mt-3" style={{ color: "var(--ink-soft)" }}>
             {ev.contactName && (
               <p className="font-medium" style={{ color: "var(--ink)" }}>
                 {ev.contactName}
@@ -139,14 +123,17 @@ const TableRow = ({ ev, idx }) => {
               </a>
             )}
           </div>
-        ) : (
-          <span
-            className="font-body text-sm italic"
-            style={{ color: "var(--ink-mute)" }}
-          >
-            —
-          </span>
         )}
+      </td>
+      <td className="align-top px-5 py-5">
+        <VenueLink name={ev.venueName} address={ev.address} mapLink={ev.mapLink} />
+        <div
+          className="flex items-center gap-1.5 mt-2 font-body text-sm"
+          style={{ color: "var(--ink-soft)" }}
+        >
+          <Clock size={13} style={{ color: "var(--gold)" }} />
+          <span>{ev.time || TBA}</span>
+        </div>
       </td>
     </tr>
   );
@@ -279,6 +266,65 @@ const MobileCard = ({ ev }) => {
   );
 };
 
+const EventGroup = ({ title, eventsList }) => {
+  if (eventsList.length === 0) return null;
+  
+  return (
+    <div className="mb-12">
+      <h3
+        className="font-display text-2xl sm:text-3xl mb-5 font-semibold"
+        style={{ color: "var(--ink)" }}
+      >
+        {title}
+      </h3>
+      {/* Desktop / tablet — table */}
+      <div className="hidden md:block rounded-xl overflow-hidden border" style={{ borderColor: "var(--line)" }}>
+        <table
+          className="w-full border-collapse text-left"
+          style={{ tableLayout: "fixed" }}
+        >
+          <colgroup>
+            <col style={{ width: "20%" }} />
+            <col style={{ width: "40%" }} />
+            <col style={{ width: "40%" }} />
+          </colgroup>
+          <thead>
+            <tr
+              style={{
+                background:
+                  "linear-gradient(180deg, #f3e2c4 0%, #ead0a3 100%)",
+                color: "var(--saffron-deep)",
+              }}
+            >
+              <th className="px-5 py-4 font-display text-[12px] tracking-[0.22em] uppercase font-semibold">
+                Date
+              </th>
+              <th className="px-5 py-4 font-display text-[12px] tracking-[0.22em] uppercase font-semibold">
+                Topic
+              </th>
+              <th className="px-5 py-4 font-display text-[12px] tracking-[0.22em] uppercase font-semibold">
+                Venue &amp; Timing
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {eventsList.map((ev, idx) => (
+              <TableRow key={ev.id} ev={ev} idx={idx} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Mobile — stacked cards */}
+      <div className="md:hidden space-y-3">
+        {eventsList.map((ev) => (
+          <MobileCard key={ev.id} ev={ev} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const EventsSchedule = () => {
   return (
     <section
@@ -309,58 +355,13 @@ const EventsSchedule = () => {
           here for the updated schedule.
         </p>
 
-        {/* Desktop / tablet — table */}
-        <div className="hidden md:block rounded-xl overflow-hidden border" style={{ borderColor: "var(--line)" }}>
-          <table
-            data-testid="events-table"
-            className="w-full border-collapse text-left"
-            style={{ tableLayout: "fixed" }}
-          >
-            <colgroup>
-              <col style={{ width: "16%" }} />
-              <col style={{ width: "26%" }} />
-              <col style={{ width: "36%" }} />
-              <col style={{ width: "22%" }} />
-            </colgroup>
-            <thead>
-              <tr
-                style={{
-                  background:
-                    "linear-gradient(180deg, #f3e2c4 0%, #ead0a3 100%)",
-                  color: "var(--saffron-deep)",
-                }}
-              >
-                <th className="px-5 py-4 font-display text-[12px] tracking-[0.22em] uppercase font-semibold">
-                  Date
-                </th>
-                <th className="px-5 py-4 font-display text-[12px] tracking-[0.22em] uppercase font-semibold">
-                  Topic
-                </th>
-                <th className="px-5 py-4 font-display text-[12px] tracking-[0.22em] uppercase font-semibold">
-                  Venue &amp; Timing
-                </th>
-                <th className="px-5 py-4 font-display text-[12px] tracking-[0.22em] uppercase font-semibold">
-                  Contact
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {events.map((ev, idx) => (
-                <TableRow key={ev.id} ev={ev} idx={idx} />
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <EventGroup title="Parayanam" eventsList={parayanamEvents} />
+        <EventGroup title="Discourses" eventsList={discoursesEvents} />
 
-        {/* Mobile — stacked cards */}
-        <div className="md:hidden space-y-3">
-          {events.map((ev) => (
-            <MobileCard key={ev.id} ev={ev} />
-          ))}
-        </div>
       </div>
     </section>
   );
 };
 
 export default EventsSchedule;
+

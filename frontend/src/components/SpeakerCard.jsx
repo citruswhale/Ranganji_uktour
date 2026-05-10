@@ -72,16 +72,7 @@ const SpeakerCard = () => {
             className="font-body text-base sm:text-lg leading-relaxed"
             style={{ color: "var(--ink-soft)" }}
           >
-            As Founder President of WEBOLIM (Web of Life Makers) Trust, Dr.
-            Ranganji has <b>established two schools: Shruti Ram Gurukulam and
-            Sitalakshmi Gurukulam</b> in Bengaluru. Students in these schools are
-            taught Vedic education, Yoga, Sanskrit, and the Ramayana alongside
-            secular courses in psychology, accountancy, business studies, and
-            more. For his extraordinary contributions to literature, research,
-            and spiritual education, he has been honored with a <b>Doctor of
-            Literature (D.Litt)</b> from SVYASA Yoga University and conferred titles
-            including <b>Rama Kathamrutha Varshi, Yoga Vidhya Varidhi, and
-            Samanvayacharya</b>.
+            As Founder President of WEBOLIM (Web of Life Makers) Trust, Dr. Ranganji has <b>established three educational institutes: Shruti Ram Gurukulam,  Sitalakshmi Gurukulam (upto higher secondary) and Valmiki College of Vedic Wisdom</b> in Bengaluru. Students in these institutes are taught Vedic education, Yoga, Sanskrit, and the Ramayana alongside secular studies. For his extraordinary contributions to literature, research, and spiritual education, he has been honored with a <b>Doctor of Literature (D.Litt)</b> from SVYASA Yoga University and conferred titles including <b>Rama Kathamrutha Varshi, Yoga Vidhya Varidhi, and Samanvayacharya</b>.
           </p>
         </div>
       </div>

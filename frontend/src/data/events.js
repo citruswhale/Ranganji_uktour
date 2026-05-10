@@ -12,8 +12,8 @@ export const events = [
     venueName: "South London Sanathan Mandir",
     address: "108 Chipstead Valley Rd, Coulsdon, CR5 3BA",
     mapLink: "https://maps.app.goo.gl/4sFHGiXrwPUMRSDZ6",
-    contactName: "Shankar Ji",
-    contactPhone: "+44 7415532071",
+    contactName: null,
+    contactPhone: null,
     confirmed: true,
   },
   {
@@ -26,8 +26,8 @@ export const events = [
     venueName: "South London Sanathan Mandir",
     address: "108 Chipstead Valley Rd, Coulsdon, CR5 3BA",
     mapLink: "https://maps.app.goo.gl/4sFHGiXrwPUMRSDZ6",
-    contactName: "Shankar Ji",
-    contactPhone: "+44 7415532071",
+    contactName: null,
+    contactPhone: null,
     confirmed: true,
   },
   {
@@ -40,8 +40,8 @@ export const events = [
     venueName: "South London Sanathan Mandir",
     address: "108 Chipstead Valley Rd, Coulsdon, CR5 3BA",
     mapLink: "https://maps.app.goo.gl/4sFHGiXrwPUMRSDZ6",
-    contactName: "Shankar Ji",
-    contactPhone: "+44 7415532071",
+    contactName: null,
+    contactPhone: null,
     confirmed: true,
   },
   {
@@ -54,8 +54,8 @@ export const events = [
     venueName: "Raja Rajeshwari Amman Temple",
     address: "4 Dell Ln, Stoneleigh, Epsom KT17 2NE",
     mapLink: "https://maps.app.goo.gl/EanoM3vhJUVWFH5RA",
-    contactName: "Shankar Ji",
-    contactPhone: "+44 7415532071",
+    contactName: null,
+    contactPhone: null,
     confirmed: true,
   },
   {
@@ -68,8 +68,8 @@ export const events = [
     venueName: "South London Sanathan Mandir",
     address: "108 Chipstead Valley Rd, Coulsdon, CR5 3BA",
     mapLink: "https://maps.app.goo.gl/4sFHGiXrwPUMRSDZ6",
-    contactName: "Shankar Ji",
-    contactPhone: "+44 7415532071",
+    contactName: null,
+    contactPhone: null,
     confirmed: true,
   },
   {
@@ -80,7 +80,8 @@ export const events = [
     time: "11:00 AM – 1:00 PM",
     topic: "Discourse",
     venueName: "Amersham Satsang",
-    address: "81 Sheepcote Dell Road, Holmer Green HP15 6TL",
+    address: "Amersham HP15",
+    mapLink: "https://maps.app.goo.gl/4KBnTNPufs2fqC237",
     contactName: "Venkataraman VC",
     contactPhone: "+44 7525218187",
     confirmed: true,
@@ -95,7 +96,7 @@ export const events = [
     venueName: "Shelly Community Farm",
     address: "Monkspath, Solihull, Birmingham B90 4EH",
     mapLink: "https://maps.app.goo.gl/WyZ9zdiPqLxHTqzFA",
-    contactName: "Santhanam Ji",
+    contactName: null,
     contactPhone: null,
     confirmed: true,
   },
@@ -122,8 +123,8 @@ export const events = [
     venueName: "VHP Temple",
     address: "43 Cleveland Rd, Ilford IG1 1EE",
     mapLink: "https://maps.app.goo.gl/BSWGYaYSZEGiNDze6",
-    contactName: "Vish Ji",
-    contactPhone: "+44 7912771151",
+    contactName: null,
+    contactPhone: null,
     confirmed: true,
   },
   {
@@ -139,12 +140,12 @@ export const events = [
     contactPhone: "+44 7438629436",
     confirmed: true,
   },
-  {
+  /* {
     id: 11,
     date: "9 Jun 2026",
     day: "Tuesday",
     confirmed: false,
-  },
+  }, */
   {
     id: 12,
     date: "10 Jun 2026",
@@ -159,12 +160,12 @@ export const events = [
     contactPhone: null,
     confirmed: true,
   },
-  {
+  /* {
     id: 13,
     date: "11 Jun 2026",
     day: "Thursday",
     confirmed: false,
-  },
+  }, */
   {
     id: 14,
     date: "12 Jun 2026",
@@ -178,12 +179,12 @@ export const events = [
     contactPhone: "+44 7843295458",
     confirmed: true,
   },
-  {
+  /* {
     id: 15,
     date: "13 Jun 2026",
     day: "Saturday",
     confirmed: false,
-  },
+  }, */
   {
     id: 16,
     date: "13 Jun 2026",
@@ -193,7 +194,7 @@ export const events = [
     address: "Rugby, UK",
     confirmed: false,
   },
-  {
+  /* {
     id: 17,
     date: "14 Jun 2026",
     day: "Sunday",
@@ -210,7 +211,7 @@ export const events = [
     venueName: "Maidenhead / Oxford, UK",
     address: "Maidenhead / Oxford, UK",
     confirmed: false,
-  },
+  }, */
   {
     id: 19,
     date: "15 Jun 2026",
@@ -224,7 +225,7 @@ export const events = [
     contactPhone: "+44 7912699306",
     confirmed: true,
   },
-  {
+  /* {
     id: 20,
     date: "16 Jun 2026",
     day: "Tuesday",
@@ -235,7 +236,7 @@ export const events = [
     date: "17 Jun 2026",
     day: "Wednesday",
     confirmed: false,
-  },
+  }, */
 ];
 
 export const buildMapsLink = (query) =>
