@@ -284,7 +284,7 @@ export const events = [
     mapLink: "https://maps.app.goo.gl/c6MJepwQSza94Do57",
     contactName: null,
     contactPhone: null,
-    confirmed: false,
+    confirmed: true,
   },
 ];
 
