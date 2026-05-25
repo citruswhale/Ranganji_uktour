@@ -2,6 +2,7 @@ import React from "react";
 import SpeakerCard from "./components/SpeakerCard";
 import EventInfoCard from "./components/EventInfoCard";
 import EventsSchedule from "./components/EventsSchedule";
+import Footer from "./components/Footer";
 import {
   LotusBloom,
   SimpleStarDivider,
@@ -118,6 +119,9 @@ function App() {
           </p>
         </footer>
       </main>
+
+      {/* Footer with QR codes */}
+      <Footer />
     </div>
   );
 }

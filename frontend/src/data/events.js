@@ -238,7 +238,7 @@ export const events = [
     day: "Sunday",
     session: "Evening",
     time: "6:00 PM – 7:30 PM",
-    topic: "Discourse",
+    topic: "Sundarakandam",
     venueName: "Sri Siddhi Vinayak Mandir",
     address: "Ferry Meadows Cl, Broughton, Milton Keynes MK10 9QY, United Kingdom",
     contactName: null,
