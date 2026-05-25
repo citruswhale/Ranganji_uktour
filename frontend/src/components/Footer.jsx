@@ -135,7 +135,10 @@ const Footer = () => {
               Tour Contact: 
             </div>
             <div className="text-amber-300 text-base font-semibold">
-              Shwetha S — +44 7899086630
+              Shwetha S — +44 78990 86630
+            </div>
+            <div className="text-amber-300 text-base font-semibold">
+              Webolim Official — +91 93696 37283
             </div>
           </div>
 
