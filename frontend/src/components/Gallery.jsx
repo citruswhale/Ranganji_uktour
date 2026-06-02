@@ -272,10 +272,15 @@ const GalleryModal = ({ onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b p-6 flex items-center justify-between z-10 flex-shrink-0">
-          <h2 className="font-display text-2xl" style={{ color: "var(--ink)" }}>
-            Event Posters Gallery
-          </h2>
+        <div className="sticky top-0 bg-white border-b p-6 flex items-start justify-between z-10 flex-shrink-0">
+          <div className="flex flex-col">
+            <h2 className="font-display text-2xl" style={{ color: "var(--ink)" }}>
+              Event Posters Gallery
+            </h2>
+            <h3 className="font-display text-xs mt-1" style={{ color: "var(--ink-mute)" }}>
+              [Click to open and share]
+            </h3>
+          </div>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
