@@ -199,7 +199,7 @@ const FullscreenModal = ({ image, onClose, onNavigate, totalPosters, currentInde
 
         {/* Share button */}
         <div className="fixed bottom-6 right-6 z-40">
-          <ShareButton image={image} posterIndex={currentIndex + 1} />
+          <ShareButton image={image} posterIndex={currentIndex} />
         </div>
       </div>
     </div>
