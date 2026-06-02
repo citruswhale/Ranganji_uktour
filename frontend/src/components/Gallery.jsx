@@ -28,17 +28,18 @@ const posterImages = [
 ];
 
 // Poster to Event Mapping - maps poster index to event ID
+// Matched by filename date + topic to events.js entries
 const posterMetadata = [
-  { eventId: 4 },   // poster1 -> 5_June_Leadership_in_Ramayana (Event 4)
-  { eventId: 12 },  // poster2 -> 10_June_Sudhama_Charithram (Event 12)
-  { eventId: 14 },  // poster3 -> 12_June_Hanuman_Chalisa (Event 14)
-  { eventId: 15 },  // poster4 -> 13_June_Sundara_Kandam (Event 15)
-  { eventId: 16 },  // poster5 -> 13_June_Bharatha's_Bakthi_&_Rama's_Dharma (Event 16)
-  { eventId: 17 },  // poster6 -> 14_June_Women_power_in_Sanatan_Dharma (Event 17)
-  { eventId: 19 },  // poster7 -> 15_June_Navavidha_Bakthi (Event 19)
-  { eventId: 1 },   // poster8 -> 4-5_June_Sundarakanda_Parayanam (Event 1)
-  { eventId: 2 },   // poster9 -> 4_June_Ramayana's_Relevance_in_the_Modern_World (Event 2)
-  { eventId: 7 },   // poster10 -> 6_June_Sita_Kalyanam (Event 7)
+  { eventId: 4 },   // poster1: 5_June_Leadership_in_Ramayana → Event 4 (5 Jun, Leadership)
+  { eventId: 12 },  // poster2: 10_June_Sudhama_Charithram → Event 12 (10 Jun, Sudhama Charithram)
+  { eventId: 14 },  // poster3: 12_June_Hanuman_Chalisa → Event 14 (12 Jun, Hanuman Chalisa)
+  { eventId: 15 },  // poster4: 13_June_Sundara_Kandam → Event 15 (13 Jun, Sundara Kandam)
+  { eventId: 16 },  // poster5: 13_June_Bharatha's_Bakthi_&_Rama's_Dharma → Event 16 (13 Jun, Bharatha's Bakthi & Rama's Dharma)
+  { eventId: 17 },  // poster6: 14_June_Women_power_in_Sanatan_Dharma → Event 17 (14 Jun, Women power in Sanatan Dharma)
+  { eventId: 19 },  // poster7: 15_June_Navavidha_Bakthi → Event 19 (15 Jun, Navavidha Bakthi)
+  { eventId: 1 },   // poster8: 4-5_June_Sundarakanda_Parayanam → Event 1 (4 Jun, Sundarakanda Parayanam)
+  { eventId: 2 },   // poster9: 4_June_Ramayana's_Relevance_in_the_Modern_World → Event 2 (4 Jun, Ramayana's Relevance in the Modern World)
+  { eventId: 7 },   // poster10: 6_June_Sita_Kalyanam → Event 7 (6 Jun, Sita Kalyanam)
 ];
 
 const generateShareMessage = (posterIndex) => {
