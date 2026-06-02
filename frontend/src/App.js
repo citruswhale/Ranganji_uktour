@@ -1,6 +1,7 @@
 import React from "react";
 import SpeakerCard from "./components/SpeakerCard";
 import EventInfoCard from "./components/EventInfoCard";
+import Gallery from "./components/Gallery";
 import EventsSchedule from "./components/EventsSchedule";
 import Footer from "./components/Footer";
 import {
@@ -97,6 +98,7 @@ function App() {
         <SectionBreak />
         <EventInfoCard />
         <SectionBreak />
+        <Gallery />
         <EventsSchedule />
 
         {/* ===================== FOOTER ===================== */}
