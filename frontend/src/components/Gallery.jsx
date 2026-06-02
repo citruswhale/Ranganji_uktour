@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { X, ChevronLeft, Share2 } from "lucide-react";
+import { events } from "../data/events";
 
 // Import all gallery images
 import poster1 from "../assets/gallery/WhatsApp Image 2026-05-26 at 2.36.53 AM (1).jpeg";
@@ -26,9 +27,54 @@ const posterImages = [
   poster10,
 ];
 
+// Poster to Event Mapping - maps poster index to event ID
+const posterMetadata = [
+  { eventId: 4 },   // poster1 -> Leadership in Ramayana (5 Jun)
+  { eventId: 12 },  // poster2 -> Sudhama Charithram (10 Jun)
+  { eventId: 14 },  // poster3 -> Hanuman Chalisa (12 Jun)
+  { eventId: 15 },  // poster4 -> Sundara Kandam (13 Jun Morning)
+  { eventId: 16 },  // poster5 -> Bharatha's Bakthi & Rama's Dharma (13 Jun)
+  { eventId: 17 },  // poster6 -> Women power in Sanatan Dharma (14 Jun)
+  { eventId: 19 },  // poster7 -> Navavidha Bakthi (15 Jun)
+  { eventId: 1 },   // poster8 -> Sundarakanda Parayanam (4 Jun)
+  { eventId: 11 },  // poster9 -> Hanuman Chalisa (9 Jun)
+  { eventId: 13 },  // poster10 -> Hanuman chalisa (11 Jun)
+];
+
+const generateShareMessage = (posterIndex) => {
+  const metadata = posterMetadata[posterIndex];
+  if (!metadata) return "Dr. Ranganji's UK Tour 2026 - Stories that inspire, values that transform\n\nMore info: https://ranganji-uktour.vercel.app/";
+  
+  const event = events.find(e => e.id === metadata.eventId);
+  if (!event) return "Dr. Ranganji's UK Tour 2026 - Stories that inspire, values that transform\n\nMore info: https://ranganji-uktour.vercel.app/";
+
+  let message = `Dr. Ranganji's UK Tour 2026 - Stories that inspire, values that transform\n\n`;
+  message += `Topic: ${event.topic}\n\n`;
+  message += `Date: ${event.date}`;
+  if (event.session) {
+    message += ` (${event.session})`;
+  }
+  message += `\n`;
+  message += `Time: ${event.time || "TBA"}\n`;
+  message += `Venue: ${event.venueName}\n`;
+  message += `Address: ${event.address}\n`;
+  
+  if (event.contactName) {
+    message += `\nContact: ${event.contactName}`;
+    if (event.contactPhone) {
+      message += `, ${event.contactPhone}`;
+    }
+    message += `\n`;
+  }
+  
+  message += `\nMore info: https://ranganji-uktour.vercel.app/`;
+  
+  return message;
+};
+
 const ShareButton = ({ image, posterIndex }) => {
   const handleShare = async () => {
-    const text = "Check out this event poster! 🙏\n\nDr. Ranganji's UK Tour 2026 - Stories that inspire, values that transform";
+    const text = generateShareMessage(posterIndex);
 
     // Try native share API first (mobile)
     if (navigator.share) {
@@ -38,7 +84,7 @@ const ShareButton = ({ image, posterIndex }) => {
         const file = new File([blob], `poster-${posterIndex}.jpg`, { type: "image/jpeg" });
 
         await navigator.share({
-          title: "Event Poster",
+          title: "Dr. Ranganji's UK Tour 2026 Event",
           text: text,
           files: [file],
         });
