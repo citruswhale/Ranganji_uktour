@@ -51,7 +51,14 @@ const generateShareMessage = (posterIndex) => {
 
   let message = `Dr. Ranganji's UK Tour 2026 - Stories that inspire, values that transform\n\n`;
   message += `Topic: ${event.topic}\n\n`;
-  message += `Date: ${event.date}`;
+  
+  // Special case: poster 8 shows 4 - 6 Jun
+  let eventDate = event.date;
+  if (posterIndex === 7) {
+    eventDate = "4 - 6 Jun 2026";
+  }
+  
+  message += `Date: ${eventDate}`;
   if (event.session) {
     message += ` (${event.session})`;
   }

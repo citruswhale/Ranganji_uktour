@@ -6,7 +6,7 @@ import { map } from "zod/v4-mini";
 export const events = [
   {
     id: 1,
-    date: "4 Jun 2026",
+    date: "4 - 6 Jun 2026",
     day: "Thursday",
     session: "Morning",
     time: "7:00 AM – 9:30 AM",
