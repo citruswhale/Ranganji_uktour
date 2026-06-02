@@ -121,7 +121,7 @@ export const events = [
     date: "7 Jun 2026",
     day: "Sunday",
     session: "Evening",
-    time: "4:30 PM – 6:00 PM",
+    time: "5:30 PM – 7:00 PM",
     topic: "Fundamentals of Sanathana Dharma",
     venueName: "VHP Temple",
     address: "43 Cleveland Rd, Ilford IG1 1EE",
