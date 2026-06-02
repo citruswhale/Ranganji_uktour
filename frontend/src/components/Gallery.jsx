@@ -3,16 +3,16 @@ import { X, ChevronLeft, Share2 } from "lucide-react";
 import { events } from "../data/events";
 
 // Import all gallery images
-import poster1 from "../assets/gallery/WhatsApp Image 2026-05-26 at 2.36.53 AM (1).jpeg";
-import poster2 from "../assets/gallery/WhatsApp Image 2026-05-26 at 2.36.53 AM (2).jpeg";
-import poster3 from "../assets/gallery/WhatsApp Image 2026-05-26 at 2.36.53 AM (3).jpeg";
-import poster4 from "../assets/gallery/WhatsApp Image 2026-05-26 at 2.36.53 AM (4).jpeg";
-import poster5 from "../assets/gallery/WhatsApp Image 2026-05-26 at 2.36.53 AM (5).jpeg";
-import poster6 from "../assets/gallery/WhatsApp Image 2026-05-26 at 2.36.53 AM.jpeg";
-import poster7 from "../assets/gallery/WhatsApp Image 2026-05-26 at 2.37.36 AM (1).jpeg";
-import poster8 from "../assets/gallery/WhatsApp Image 2026-05-26 at 2.37.36 AM (2).jpeg";
-import poster9 from "../assets/gallery/WhatsApp Image 2026-05-26 at 2.37.36 AM.jpeg";
-import poster10 from "../assets/gallery/WhatsApp Image 2026-05-28 at 10.46.05 PM.jpeg";
+import poster1 from "../assets/gallery/5_June_Leadership_in_Ramayana.jpeg";
+import poster2 from "../assets/gallery/10_June_Sudhama_Charithram.jpeg";
+import poster3 from "../assets/gallery/12_June_Hanuman_Chalisa.jpeg";
+import poster4 from "../assets/gallery/13_June_Sundara_Kandam.jpeg";
+import poster5 from "../assets/gallery/13_June_Bharatha's_Bakthi_&_Rama's_Dharma.jpeg";
+import poster6 from "../assets/gallery/14_June_Women_power_in_Sanatan_Dharma.jpeg";
+import poster7 from "../assets/gallery/15_June_Navavidha_Bakthi.jpeg";
+import poster8 from "../assets/gallery/4-5_June_Sundarakanda_Parayanam.jpeg";
+import poster9 from "../assets/gallery/4_June_Ramayana's_Relevance_in_the_Modern_World.jpeg";
+import poster10 from "../assets/gallery/6_June_Sita_Kalyanam.jpeg";
 
 const posterImages = [
   poster1,
@@ -29,16 +29,16 @@ const posterImages = [
 
 // Poster to Event Mapping - maps poster index to event ID
 const posterMetadata = [
-  { eventId: 4 },   // poster1 -> Leadership in Ramayana (5 Jun)
-  { eventId: 12 },  // poster2 -> Sudhama Charithram (10 Jun)
-  { eventId: 14 },  // poster3 -> Hanuman Chalisa (12 Jun)
-  { eventId: 15 },  // poster4 -> Sundara Kandam (13 Jun Morning)
-  { eventId: 16 },  // poster5 -> Bharatha's Bakthi & Rama's Dharma (13 Jun)
-  { eventId: 17 },  // poster6 -> Women power in Sanatan Dharma (14 Jun)
-  { eventId: 19 },  // poster7 -> Navavidha Bakthi (15 Jun)
-  { eventId: 1 },   // poster8 -> Sundarakanda Parayanam (4 Jun)
-  { eventId: 11 },  // poster9 -> Hanuman Chalisa (9 Jun)
-  { eventId: 13 },  // poster10 -> Hanuman chalisa (11 Jun)
+  { eventId: 4 },   // poster1 -> 5_June_Leadership_in_Ramayana (Event 4)
+  { eventId: 12 },  // poster2 -> 10_June_Sudhama_Charithram (Event 12)
+  { eventId: 14 },  // poster3 -> 12_June_Hanuman_Chalisa (Event 14)
+  { eventId: 15 },  // poster4 -> 13_June_Sundara_Kandam (Event 15)
+  { eventId: 16 },  // poster5 -> 13_June_Bharatha's_Bakthi_&_Rama's_Dharma (Event 16)
+  { eventId: 17 },  // poster6 -> 14_June_Women_power_in_Sanatan_Dharma (Event 17)
+  { eventId: 19 },  // poster7 -> 15_June_Navavidha_Bakthi (Event 19)
+  { eventId: 1 },   // poster8 -> 4-5_June_Sundarakanda_Parayanam (Event 1)
+  { eventId: 2 },   // poster9 -> 4_June_Ramayana's_Relevance_in_the_Modern_World (Event 2)
+  { eventId: 7 },   // poster10 -> 6_June_Sita_Kalyanam (Event 7)
 ];
 
 const generateShareMessage = (posterIndex) => {
